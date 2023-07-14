@@ -1,0 +1,9 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+            '$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$REPO_NAME:latest', '.']
+  
+  # Docker push to Google Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', '$LOCATION-docker.pkg.dev/$PROJECT_ID/$REPO_NAME/$REPO_NAME:latest']
