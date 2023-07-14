@@ -10,7 +10,7 @@ import time
 
 PUBSUB_PROJECT_ID = os.environ.get("PUBSUB_PROJECT_ID","signalscz-demo")
 PUBSUB_SUBSCRIPTION_ID = os.environ.get("PUBSUB_SUBSCRIPTION_ID","sgtm-test--pull")
-PUBSUB_TIMEOUT = int(os.environ.get("PUBSUB_TIMEOUT",10))
+PUBSUB_TIMEOUT = int(os.environ.get("PUBSUB_TIMEOUT",30))
 PUBSUB_MAX_MESSAGES = int(os.environ.get("PUBSUB_MAX_MESSAGES",10))
 
 BIGQUERY_TABLE_ID = os.environ.get("BIGQUERY_TABLE_ID","signalscz-demo.otto_test.pubsub_pull")
