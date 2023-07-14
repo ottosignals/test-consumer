@@ -1,17 +1,5 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim-buster
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Copy the requirements file into the container
-COPY requirements.txt .
-
-# Install any needed packages specified in requirements.txt
-RUN pip install --trusted-host pypi.python.org -r requirements.txt
-
-# Copy the rest of the application code into the container
-COPY . .
-
-# Set the command to run when the container starts
-CMD ["python", "app.py"]
+google-api-core==2.11.0
+google-cloud-pubsub==2.17.1
+google-cloud-bigquery==3.9.0
+pandas==1.5.3
+pytz==2022.7.1
