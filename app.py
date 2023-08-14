@@ -11,7 +11,7 @@ import time
 PUBSUB_PROJECT_ID = os.environ.get("PUBSUB_PROJECT_ID","signalscz-demo")
 PUBSUB_SUBSCRIPTION_ID = os.environ.get("PUBSUB_SUBSCRIPTION_ID","sgtm-test--pull")
 PUBSUB_TIMEOUT = int(os.environ.get("PUBSUB_TIMEOUT",60))
-PUBSUB_MAX_MESSAGES = int(os.environ.get("PUBSUB_MAX_MESSAGES",10))
+PUBSUB_MAX_MESSAGES = int(os.environ.get("PUBSUB_MAX_MESSAGES",1000))
 
 BIGQUERY_TABLE_ID = os.environ.get("BIGQUERY_TABLE_ID","signalscz-demo.otto_test.pubsub_pull")
 
@@ -48,7 +48,7 @@ def extract(project_id, subscription_id, timeout=10, max_messages=10):
     flow_control = pubsub_v1.types.FlowControl(max_messages=max_messages)
 
     streaming_pull_future = subscriber.subscribe(
-        subscription_path, callback=callback, flow_control=flow_control
+        subscription_path, callback=callback, await_callbacks_on_shutdown=True, flow_control=flow_control
     )
     print(f"Listening for messages on {subscription_path}..\n")
 
