@@ -104,4 +104,4 @@ if __name__ == '__main__':
     # Convert df to json
     rows_to_insert = df_messages_agg.to_dict(orient='records')
     load(rows_to_insert)
-    print(f"Received messages: {len(received_messages)}")
+  print(f"Received messages: {len(received_messages)}")
